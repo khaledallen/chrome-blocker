@@ -1,0 +1,163 @@
+:root {
+  --bg: #ffffff;
+  --surface: #f4f4f5;
+  --text: #18181b;
+  --muted: #71717a;
+  --border: #e4e4e7;
+  --accent: #dc2626;
+  --accent-text: #ffffff;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #18181b;
+    --surface: #27272a;
+    --text: #f4f4f5;
+    --muted: #a1a1aa;
+    --border: #3f3f46;
+    --accent: #ef4444;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 14px/1.4 system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 6px;
+  padding: 6px 10px;
+}
+
+button.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-text);
+}
+
+button:hover {
+  filter: brightness(0.95);
+}
+
+/* Popup */
+
+.popup {
+  width: 320px;
+  padding: 14px;
+}
+
+.popup h1 {
+  font-size: 16px;
+  margin: 0 0 12px;
+}
+
+#block-current {
+  width: 100%;
+  margin-bottom: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+form {
+  display: flex;
+  gap: 6px;
+}
+
+form input {
+  flex: 1;
+  min-width: 0;
+  padding: 6px 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+}
+
+.error {
+  color: var(--accent);
+  font-size: 12px;
+  margin: 6px 0 0;
+  min-height: 0;
+}
+
+.error:empty {
+  display: none;
+}
+
+#list {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  max-height: 320px;
+  overflow-y: auto;
+  border-top: 1px solid var(--border);
+}
+
+#list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+#list li span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#list li button {
+  padding: 2px 8px;
+  flex-shrink: 0;
+}
+
+.empty {
+  color: var(--muted);
+  margin: 12px 0 0;
+}
+
+/* Blocked page */
+
+.blocked {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  text-align: center;
+}
+
+.blocked h1 {
+  font-size: 32px;
+  margin: 0 0 8px;
+}
+
+.blocked p {
+  color: var(--muted);
+  margin: 0 0 20px;
+  word-break: break-all;
+}
+
+.blocked .actions {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}

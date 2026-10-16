@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Site Blocker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="popup">
+    <h1>Site Blocker</h1>
+
+    <button id="block-current" class="primary" hidden></button>
+
+    <form id="add-form">
+      <input id="site-input" type="text" placeholder="example.com" autocomplete="off" autofocus />
+      <button type="submit">Add</button>
+    </form>
+    <p id="error" class="error"></p>
+
+    <ul id="list"></ul>
+    <p id="empty" class="empty" hidden>No sites blocked yet.</p>
+
+    <script src="shared.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
