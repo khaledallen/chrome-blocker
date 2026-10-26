@@ -3,7 +3,7 @@
   "name": "Site Blocker",
   "version": "1.0.0",
   "description": "Block a list of websites you choose.",
-  "permissions": ["declarativeNetRequest", "storage"],
+  "permissions": ["declarativeNetRequest", "storage", "scripting", "browsingData"],
   "host_permissions": ["<all_urls>"],
   "background": {
     "service_worker": "background.js"

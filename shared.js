@@ -25,6 +25,15 @@ function isHostBlocked(hostname, sites) {
   return sites.some((site) => host === site || host.endsWith('.' + site));
 }
 
+function isUrlBlocked(url, sites) {
+  try {
+    const { protocol, hostname } = new URL(url);
+    return /^https?:$/.test(protocol) && isHostBlocked(hostname, sites);
+  } catch {
+    return false;
+  }
+}
+
 async function getSites() {
   const { sites = [] } = await chrome.storage.local.get('sites');
   return sites;
