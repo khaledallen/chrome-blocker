@@ -30,6 +30,10 @@ click the reload icon on the extension's card in `chrome://extensions`.
 - `background.js` turns the saved list into one
   [`declarativeNetRequest`](https://developer.chrome.com/docs/extensions/reference/api/declarativeNetRequest)
   rule that redirects matching pages and iframes to `blocked.html`.
+- That rule only sees network requests, so `background.js` also watches tabs
+  and swaps out any page on a blocked site that loaded without one (served by
+  the site's service worker, or restored by the back button). It also deletes
+  blocked sites' service workers so later visits hit the rule.
 - `popup.html` / `popup.js` edit the list in `chrome.storage.local`. The
   background worker watches storage and updates the rule.
 - `shared.js` holds the domain cleanup and matching helpers.
